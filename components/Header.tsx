@@ -1,24 +1,25 @@
 import React from 'react';
 import styled from 'styled-components'
 import NavBar from './NavBar'
+import Divider from '@mui/material/Divider';
 
-
-type Props = {
-  
-};
-export const Header = (props: Props) => {
+const Header = () => {
   return (
     <>
-      <MenuWrapper>
+      <HeaderWrapper className='header-wrapper'>
         <NavBar/>
-      </MenuWrapper>      
+      </HeaderWrapper>      
+      <Divider variant='middle'/>
     </>
-    );
+  );
 };
 
-const MenuWrapper=styled.div`
+export default Header;
+
+const HeaderWrapper=styled.div`
   display: flex;
   justify-content: center;
   width:100%;
-  border: 1px solid green;
+  height: 10vh;
+  /* background-color: darkolivegreen; */
 `

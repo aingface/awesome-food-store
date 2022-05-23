@@ -1,34 +1,23 @@
-import React,{useEffect} from 'react';
+// @flow
+import * as React from 'react';
 import styled from 'styled-components'
-import axios from 'axios'
-interface BodyProps1{
+
+
+interface BodyProps{
   currentPageName:string;
 }
 //React.FC<BodyProps>은 BodyProps의 currentPageName을 props로 받는다
-const Body = ({currentPageName}:BodyProps1)=> {
+const AboutBody =({currentPageName}:BodyProps)=> {
   
-  useEffect(()=>{
-    const stores= axios.get("http://localhost:9000/stores")
-    .then((res)=>{
-      console.log(res.data)
-    })
-    .catch(error=>{
-      console.log(error);
-    })  
-  },[])
 
-
-
-  
   return (
     <BodyWrapper className='body-wrapper'>
       <h2>{currentPageName}</h2>
-
     </BodyWrapper>
   );
 };
 
-export default Body;
+export default AboutBody;
 
 const BodyWrapper=styled.div`
   position: relative;

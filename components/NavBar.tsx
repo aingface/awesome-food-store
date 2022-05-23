@@ -21,9 +21,9 @@ const MenuList=styled.ul`
   font-size: 1.2rem;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   cursor: pointer;
-  width: 100vh;
+  width: 100%;
   padding:0;
 `
 const MenuItem=styled.li`
