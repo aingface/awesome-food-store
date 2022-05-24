@@ -1,6 +1,7 @@
 # commonground-eat
 
 ##시연 동영상
+
 [![awesome store 시연 동영상](https://img.youtube.com/vi/NjVc_4gqR3Y/0.jpg)](https://youtu.be/NjVc_4gqR3Y)
 
 ##메인 페이지
