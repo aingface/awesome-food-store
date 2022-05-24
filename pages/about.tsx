@@ -15,7 +15,7 @@ const About = () => {
       <title>AOWESOME FOODSTORE: About</title>
       </Head>
       <Header/>
-      <AboutBody currentPageName={"About Body"}/>
+      <AboutBody currentPageName={"About"}/>
       <Footer/>  
     </>
   );

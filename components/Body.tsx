@@ -1,37 +1,49 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components'
 import {Grid,Box} from '@mui/material'
-interface Store{
-  id:number,
-  name:string,
-  description:string,
-  thumb:string,
-  url:string,
-}
+import {Store,StoreModal} from '../shared/interface'
+import { dummyStoreModal } from '../shared/dummyData'
+import ModalCard from './ModalCard'
+
 interface BodyProps{
   currentPageName:string;
   storeList:Store[];
 }
 
 //React.FC<BodyProps>은 BodyProps의 currentPageName을 props로 받는다
-const Body = ({currentPageName,storeList}:BodyProps)=> {
+const Body = ({currentPageName,storeList}:BodyProps)=> {  
+  const [storeModalInfo, setStoreModalInfo] = useState<StoreModal>(dummyStoreModal);
   const storeCardList=storeList.map((item:Store,index:number)=>{
-    console.log(item.thumb)
+    const onClickHandler=()=>setStoreModalInfo({
+      id:item.id,
+      name:item.name,
+      description:item.description,
+      thumb:item.thumb,
+      image:item.image,
+      url:item.url,
+      open:true,
+    })
+
     return(
-      <Grid item key={item.id+item.name}>
-        <CardImg src={item.thumb} alt={item.name}/>
+      <Grid item key={item.id+item.name} onClick={onClickHandler}>
+        <CardImg src={item.thumb} alt={item.name} />
       </Grid>
     )
   })
   return (
-    <BodyWrapper className='body-wrapper'>
-      <h2>{currentPageName}</h2>
-      <Box flexGrow={1}>
-        <Grid container spacing={{xs:2, md:4 }} columns={{xs:4, sm:8, md: 12}}>
-          {storeCardList}  
-        </Grid>
-      </Box>
-    </BodyWrapper>
+    <>
+      <BodyWrapper className='body-wrapper'>
+        <BoxWrapper>
+          <Box sx={boxStyle}>
+            <h2>{currentPageName}</h2>
+            <Grid container spacing={{xs:3, md:6}} rowSpacing={5} columnSpacing={8} columns={{xs:4, sm:8, md: 12}}>
+              {storeCardList}  
+            </Grid>
+          </Box>
+        </BoxWrapper>
+      </BodyWrapper>
+      { storeModalInfo['open'] && <ModalCard storeModalInfo={storeModalInfo} setStoreModalInfo={setStoreModalInfo}/>}
+    </>
   );
 };
 
@@ -39,15 +51,28 @@ export default Body;
 
 const CardImg=styled.img`
   border-radius: 0.5rem;
-  width: 12rem;
-  height: 12rem;
+  width: 12.2rem;
+  height: 12.2rem;
   overflow: hidden;
 `
 
+const boxStyle={
+  width:'70%',
+  alignItems:'center',
+  margin:'0 auto',
+}
+
+const BoxWrapper=styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+`
+
 const BodyWrapper=styled.div`
-  position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 80vh;
-  margin: 0;
   padding: 3rem;
-  /* background-color: darkgray; */
+  margin: 0 auto;
 `

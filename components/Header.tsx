@@ -6,6 +6,7 @@ import Divider from '@mui/material/Divider';
 const Header = () => {
   return (
     <>
+      <h2 style={projectNameStyle}>AWESOME FOOD STORE</h2>
       <HeaderWrapper className='header-wrapper'>
         <NavBar/>
       </HeaderWrapper>      
@@ -15,6 +16,11 @@ const Header = () => {
 };
 
 export default Header;
+
+const projectNameStyle={
+  margin:'1.5rem auto 0 auto',
+  color:'#464ea3'
+}
 
 const HeaderWrapper=styled.div`
   display: flex;
