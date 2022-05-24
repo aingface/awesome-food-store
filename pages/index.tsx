@@ -4,24 +4,41 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import Body from '../components/Body'
 import Footer from '../components/Footer'
+import ModalCard from '../components/ModalCard'
 import React,{useEffect,useState} from 'react';
 import axios from 'axios'
 
-const Home: NextPage = () => {
-  const [storeList,setStoreList]=useState<object[]>([{}]);
-  useEffect(()=>{
-      const getStores=():void=>{ axios.get("http://localhost:9000/stores")
-      .then((res)=>{
-        // console.log(res.data)
-        setStoreList([...storeList,res.data])
-      })
-      .catch(error=>{
-        console.log(error);
-      })
-    getStores
-    }  
-  },[])
 
+interface Store{
+  id:number,
+  name:string,
+  description:string,
+  thumb:string,
+  url:string,
+}
+//더미 storeList 변수에 들어갈 더미 값
+const dummyStore:Store={
+  id:-(Number.MAX_SAFE_INTEGER),
+  name:'dummy-name',
+  description:'dummy-description',
+  thumb:'dummy-thumb-url',  
+  url:'dummy-url'
+}
+
+const Home: NextPage = () => {
+  const [storeList,setStoreList]=useState<Store[]>([dummyStore]);
+  useEffect(()=>{
+      const getStores=()=>{ 
+      axios.get("http://localhost:9000/stores")
+        .then((res)=>{
+          setStoreList(res.data)
+        })
+        .catch((error)=>{
+          console.log(error);
+        })
+      }
+    getStores();  
+  },[])
   return (
     <>
       <Head>
@@ -34,6 +51,7 @@ const Home: NextPage = () => {
       </Head>
       <Header/>
       <Body currentPageName={"Eat"} storeList={storeList}/>
+      <ModalCard></ModalCard>
       <Footer/>  
     </>
   )

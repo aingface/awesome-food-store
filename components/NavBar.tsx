@@ -28,4 +28,5 @@ const MenuList=styled.ul`
 `
 const MenuItem=styled.li`
   margin-right: 1rem;
+  font-weight:bold;
 `

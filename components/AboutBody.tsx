@@ -3,11 +3,11 @@ import * as React from 'react';
 import styled from 'styled-components'
 
 
-interface BodyProps{
+interface AboutBodyProps{
   currentPageName:string;
 }
 //React.FC<BodyProps>은 BodyProps의 currentPageName을 props로 받는다
-const AboutBody =({currentPageName}:BodyProps)=> {
+const AboutBody =({currentPageName}:AboutBodyProps)=> {
   
 
   return (
