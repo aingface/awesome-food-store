@@ -10,7 +10,6 @@ interface BodyProps{
   storeList:Store[];
 }
 
-//React.FC<BodyProps>은 BodyProps의 currentPageName을 props로 받는다
 const Body = ({currentPageName,storeList}:BodyProps)=> {  
   const [storeModalInfo, setStoreModalInfo] = useState<StoreModal>(dummyStoreModal);
   const storeCardList=storeList.map((item:Store,index:number)=>{

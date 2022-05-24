@@ -3,10 +3,10 @@ import * as React from 'react';
 import styled from 'styled-components'
 import {Box,Typography} from '@mui/material'
 
-interface AboutBodyProps{
+interface AboutContentsProps{
   currentPageName:string;
 }
-const AboutBody =({currentPageName}:AboutBodyProps)=> {
+const AboutContents =({currentPageName}:AboutContentsProps)=> {
   return (
     <BodyWrapper className='body-wrapper'>
         <BoxWrapper>
@@ -16,6 +16,7 @@ const AboutBody =({currentPageName}:AboutBodyProps)=> {
               <Typography id="modal-modal-description" sx={{ mt: 1 }}>
                 <p>
                   맛집 리스트를 보여주고 리스트 중 하나의 아이템을 선택하면 모달 창이 열리고 상세 설명을 보여주는 페이지입니다.{'\n'}    
+                  잘못된 경로로 이동 시 5초 후 메인 페이지로 이동합니다.{'\n'}
                   TypeScript로 코드를 작성했습니다.{'\n'}
                   Next.js, Matarial UI, styled Components를 사용해서 구현했습니다.{'\n'}
                   json-server를 사용했습니다. localhost 9000번 port로 정해 db.json 파일의 값을 서버에서 불러온 것처럼 구현했습니다.{'\n'} 
@@ -29,7 +30,7 @@ const AboutBody =({currentPageName}:AboutBodyProps)=> {
   );
 };
 
-export default AboutBody;
+export default AboutContents;
 
 
 const boxStyle={

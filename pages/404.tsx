@@ -1,7 +1,20 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import {useRouter}from 'next/router'
 import styled from 'styled-components'
 
 const Custom404 = () => {
+  const router=useRouter();
+
+  const handleInput=()=>{
+    router.push('/');
+  }
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      router.push('/');
+    },5000)
+  },[])
+
   return (
     <Error404>
       <pre>

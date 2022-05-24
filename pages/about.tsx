@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header'
-import AboutBody from '../components/AboutBody'
+import AboutContents from '../components/AboutContents'
 import Footer from '../components/Footer'
 import Head from 'next/head'
 const About = () => {
@@ -15,7 +15,7 @@ const About = () => {
       <title>AOWESOME FOODSTORE: About</title>
       </Head>
       <Header/>
-      <AboutBody currentPageName={"About"}/>
+      <AboutContents currentPageName={"About"}/>
       <Footer/>  
     </>
   );

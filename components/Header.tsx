@@ -27,5 +27,4 @@ const HeaderWrapper=styled.div`
   justify-content: center;
   width:100%;
   height: 10vh;
-  /* background-color: darkolivegreen; */
 `
